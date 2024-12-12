@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">My Alarm Clock</string>
+    <string name="exit">Выход</string>
+    <string name="set_alarm">Установить будильник</string>
+    <string name="alarm_clock_set_to">Будильник установлен на </string>
+    <string name="turn_off">Выключить</string>
+</resources>
