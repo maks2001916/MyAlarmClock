@@ -5,11 +5,9 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
 import android.widget.ImageView
-import android.widget.Toolbar
+import androidx.appcompat.widget.Toolbar
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import kotlin.system.exitProcess
 
 class AlarmWentOff : AppCompatActivity() {
@@ -26,6 +24,9 @@ class AlarmWentOff : AppCompatActivity() {
         toolbarTB = findViewById(R.id.toolbarWentOff)
         imageGifIV = findViewById(R.id.turnOffGIV)
         turnOffBTN = findViewById(R.id.turnOffBTN)
+
+        setSupportActionBar(toolbarTB)
+        imageGifIV.setImageResource(R.drawable.time_change_clock)
 
         turnOffBTN.setOnClickListener {
             finish()

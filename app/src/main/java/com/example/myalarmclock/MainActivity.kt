@@ -11,7 +11,7 @@ import android.view.MenuItem
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
-import android.widget.Toolbar
+import androidx.appcompat.widget.Toolbar
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.timepicker.MaterialTimePicker
@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
         outputTimeTV = findViewById(R.id.outputTimeTV)
         setAlarmBTN = findViewById(R.id.setAlarmBTN)
 
-        setActionBar(toolbarTB)
+        setSupportActionBar(toolbarTB)
 
         setAlarmBTN.setOnClickListener {
             materialTimePicker = MaterialTimePicker.Builder()
@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity() {
                 calendar?.set(Calendar.SECOND, 0)
                 calendar?.set(Calendar.MILLISECOND, 0)
                 calendar?.set(Calendar.MINUTE, materialTimePicker!!.minute)
-                calendar?.set(Calendar.HOUR, materialTimePicker!!.hour)
+                calendar?.set(Calendar.HOUR_OF_DAY, materialTimePicker!!.hour)
 
                 var alarmManager = getSystemService(ALARM_SERVICE) as AlarmManager
                 alarmManager.setExact (
@@ -67,7 +67,8 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(
                     this,
                     "${getString(R.string.alarm_clock_set_to)} ${dateFormat.format(calendar!!.time)}",
-                    Toast.LENGTH_SHORT)
+                    Toast.LENGTH_SHORT
+                ).show()
             }
             materialTimePicker!!.show(supportFragmentManager, "tag_picker")
         }
