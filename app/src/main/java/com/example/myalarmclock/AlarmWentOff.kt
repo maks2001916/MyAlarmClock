@@ -10,6 +10,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import kotlin.system.exitProcess
 
 class AlarmWentOff : AppCompatActivity() {
 
@@ -24,6 +25,12 @@ class AlarmWentOff : AppCompatActivity() {
 
         toolbarTB = findViewById(R.id.toolbarWentOff)
         imageGifIV = findViewById(R.id.turnOffGIV)
+        turnOffBTN = findViewById(R.id.turnOffBTN)
+
+        turnOffBTN.setOnClickListener {
+            finish()
+            exitProcess(0)
+        }
 
     }
 
